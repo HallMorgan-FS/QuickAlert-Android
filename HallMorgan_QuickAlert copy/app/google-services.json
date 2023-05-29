@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "146791583594",
+    "project_id": "quickalert-androidapp",
+    "storage_bucket": "quickalert-androidapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146791583594:android:6be3869f107e33a0765f13",
+        "android_client_info": {
+          "package_name": "com.example.hallmorgan_quickalert"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146791583594-erlv9slf3hjsjj7565c399rnn809aduc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6Ns9tm4kGh-Aj28F-uAF3hnUB3EZyww4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146791583594-erlv9slf3hjsjj7565c399rnn809aduc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

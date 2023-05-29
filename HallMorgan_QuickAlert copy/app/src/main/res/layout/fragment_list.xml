@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadeScrollbars="true"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/emptyViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/emptyTextView"
+            style="@style/textView_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_contacts_to_display" />
+
+        <TextView
+            android:id="@+id/instructionsTextView"
+            style="@style/textView_style.small"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:paddingTop="8dp"
+            android:text="@string/instructions_add_contacts" />
+
+    </LinearLayout>
+
+</LinearLayout>

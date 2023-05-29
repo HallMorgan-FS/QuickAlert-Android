@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="small_app_image">Small App Image</string>
+    <string name="large_app_image">Large App Image</string>
+    <string name="phoneNumber_placeholder">(412) 558 8534</string>
+    <string name="your_emergency_lifeline">Your Emergency Lifeline</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="log_in_button">Log in</string>
+    <string name="continue_text">Continue</string>
+    <string name="full_name">Full Name</string>
+    <string name="hint_name">John Smith</string>
+    <string name="select_contacts">Select up to 6 emergency contacts</string>
+    <string name="contact_instructions">Slide contact to the left to delete</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="welcome">Welcome!</string>
+    <string name="instructions_form">Create your profile to continue</string>
+    <string name="sos">SOS</string>
+    <string name="instruction">instruction</string>
+    <string name="email">Email:</string>
+    <string name="placeholder_email">johndoe@email.com</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="birthday">Birthday:</string>
+    <string name="birthday_placeholder">01/02/1990</string>
+    <string name="hair_color">Hair Color:</string>
+    <string name="hair_placeholder">Brown</string>
+    <string name="height_ft">Height (ft)</string>
+    <string name="inch_placeholder">5 in</string>
+    <string name="weight_lbs">Weight (lbs):</string>
+    <string name="weight_placeholder">140 lbs</string>
+    <string name="other_details">Other Details:</string>
+    <string name="other_details_placeholder">Disabilities, allergies, etc.</string>
+    <string name="verify_code">Enter 6 Digit Verification Code</string>
+    <string name="zero">0</string>
+    <string name="toast_enter_valid_number">Please enter a valid phone number</string>
+    <string name="delete_and_add_emergency_contacts">Delete and Add Emergency Contacts</string>
+    <string name="no_contacts_to_display">No Contacts To Display</string>
+    <string name="instructions_add_contacts">Tap \'Add Contacts\' to add designated emergency contacts</string>
+    <string name="name">Name</string>
+    <string name="delete">Delete</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="contacts">Contacts</string>
+</resources>

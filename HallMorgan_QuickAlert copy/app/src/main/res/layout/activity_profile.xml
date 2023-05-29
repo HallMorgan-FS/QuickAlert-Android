@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    tools:context=".activities.ContactsActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/textView_style"
+        android:text="@string/delete_and_add_emergency_contacts"/>
+
+    <TextView
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/textView_style.small"
+        android:text="@string/contact_instructions"/>
+
+    <FrameLayout
+        android:id="@+id/listFragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"/>
+
+    <ImageButton
+        android:id="@+id/add_contacts_button"
+        android:layout_width="309dp"
+        android:layout_height="121dp"
+        android:background="@color/black"
+        android:contentDescription="@string/continue_text"
+        android:paddingTop="16dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/add_contact_button"
+        android:visibility="visible"/>
+
+
+</LinearLayout>
