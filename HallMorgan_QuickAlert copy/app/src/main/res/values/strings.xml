@@ -33,7 +33,9 @@
     <string name="verify_code">Enter 6 Digit Verification Code</string>
     <string name="zero">0</string>
     <string name="toast_enter_valid_number">Please enter a valid phone number</string>
-    <string name="delete_and_add_emergency_contacts">Delete and Add Emergency Contacts</string>
+    <string name="add_emergency_contacts">Add Emergency Contacts</string>
+    <string name="delete_emergency_contacts">Delete Emergency Contacts</string>
+    <string name="instructions_delete_contacts">Tap on contacts to select them, then tap the trash can to delete them.</string>
     <string name="no_contacts_to_display">No Contacts To Display</string>
     <string name="instructions_add_contacts">Tap \'Add Contacts\' to add designated emergency contacts</string>
     <string name="name">Name</string>
@@ -41,4 +43,7 @@
     <string name="profile">Profile</string>
     <string name="home">Home</string>
     <string name="contacts">Contacts</string>
+    <string name="reEnterPhoneNumber">Need to Re-Enter Your Phone Number?</string>
+    <string name="go_back">Go Back</string>
+    <string name="edit">Edit</string>
 </resources>
