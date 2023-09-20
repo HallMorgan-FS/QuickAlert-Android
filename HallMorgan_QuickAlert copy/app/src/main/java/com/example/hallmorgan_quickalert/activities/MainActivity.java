@@ -243,6 +243,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (buttonTag.equals("SOS")){
             String sos911message = HelperMethods.get911SOSMessage(name, readableAddress, num_contacts) + HelperMethods.getSignature(name);
             String sosContactMessage = HelperMethods.getContactSOSMessage(name, readableAddress, num_contacts) + HelperMethods.getSignature(name);
+            //Send SOS 911 message to developers number for testing
             smsManager.sendTextMessage("+19108845882", null, sos911message, null, null);
             for (Contacts contact : contacts){
                 smsManager.sendTextMessage(contact.getNumber(), null, sosContactMessage, null, null);
