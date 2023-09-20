@@ -41,3 +41,22 @@ to set up your emergency contacts. In case of an emergency, tap the
 relevant button to send an alert.
 
 ## Code Examples
+// Code to send SMS
+```
+if (buttonTag.equals(\"SOS\")){
+    String sos911message = HelperMethods.*get911SOSMessage*(name,
+    readableAddress, num_contacts) + HelperMethods.*getSignature*(name);
+    String sosContactMessage = HelperMethods.*getContactSOSMessage*(name,
+    readableAddress, num_contacts) + HelperMethods.*getSignature*(name);
+    //Send SOS 911 message to developers number for testing
+    smsManager.sendTextMessage(\"+19108845882\", null, sos911message, null,
+    null);
+    for (Contacts contact : contacts){
+        smsManager.sendTextMessage(contact.getNumber(), null, sosContactMessage,null, null);
+    }
+    alertMessage = \"The distress message with your location has been sent
+    911 and all designated contacts. Stay safe, help is on the way.\\nThis
+    box will close in 3 minutes\";
+  }
+```
+
