@@ -105,8 +105,10 @@ morganhall.dev@outlook.com
 
 ## Screenshots
 
-![Home Screen](https://ibb.co/prVjdZ7)
-![Contact List](https://ibb.co/cxyJcrd)
+Home Screen
+<img width="446" alt="quickAlert_homeScreen" src="https://github.com/HallMorgan-FS/QuickAlert-Android/assets/77134790/3ba350a9-3654-4bc4-b15d-32df79cb71df">
+
+
 
 
 
