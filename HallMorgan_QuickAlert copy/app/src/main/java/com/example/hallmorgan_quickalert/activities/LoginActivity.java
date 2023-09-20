@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -47,17 +48,23 @@ public class LoginActivity extends AppCompatActivity {
     private ImageButton toVerifyButton;
     private TextView instructionText;
     private String enteredNumber;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        phoneNumberEditText = findViewById(R.id.phoneNumber_editText);
-        phoneNumberEditText.setHint(R.string.phoneNumber_placeholder);
-        phoneNumberEditText.requestFocus();
         // Make the activity full screen
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        phoneNumberEditText = findViewById(R.id.phoneNumber_editText);
+        // Check if the EditText is not null
+        if (phoneNumberEditText != null) {
+            phoneNumberEditText.setHint(R.string.phoneNumber_placeholder);
+        } else {
+            Log.e("LoginActivity", "phoneNumberEditText is null");
+        }
+
 
         //Get the instance of the Firebase Authentication
         firebaseAuth = FirebaseAuth.getInstance();
@@ -91,9 +98,19 @@ public class LoginActivity extends AppCompatActivity {
                 findViewById(R.id.sixth_digit_et)
         };
 
+
         for (EditText editText : verificationCodeEditTexts){
             editText.setHint(R.string.zero);
+
         }
+        Button goBackToNumberButton = findViewById(R.id.goBack_button);
+        goBackToNumberButton.setOnClickListener(view -> {
+            verificationCodeLayout.setVisibility(View.GONE);
+            phoneNumberEditText.setVisibility(View.VISIBLE);
+            toVerifyButton.setVisibility(View.VISIBLE);
+            clearPhoneNumber();
+            instructionText.setText(R.string.enter_your_phone_number);
+        });
         toVerifyButton = findViewById(R.id.toVerify_button);
         ImageButton verifyCodeButton = findViewById(R.id.verifyCode_button);
 
@@ -155,11 +172,13 @@ public class LoginActivity extends AppCompatActivity {
             String verificationCode = getEnteredVerificationCode();
             if (!verificationCode.isEmpty()){
                 //verify the entered verification code
+                Log.i(TAG, "setUpUI: Verification code not empty. Verify entered verification code\nVerification Code:" + verificationCode);
                 PhoneAuthCredential _credential = PhoneAuthProvider.getCredential(verificationId, verificationCode);
                 //Sign in with phone auth credential
                 signInWithPhoneAuthCredential(_credential);
             } else {
                 //Verification code is empty
+                Log.i(TAG, "setUpUI: Verification code is empty");
                 Toast.makeText(LoginActivity.this, "Please enter a valid verification code.", Toast.LENGTH_SHORT).show();
                 clearCodeFields();
             }
@@ -173,6 +192,7 @@ public class LoginActivity extends AppCompatActivity {
                 .setTimeout(60L, TimeUnit.SECONDS)
                 .setCallbacks(verificationCallbacks).build();
         PhoneAuthProvider.verifyPhoneNumber(options);
+        Log.i(TAG, "sendVerificationCode: Verification code sent: " + verificationId);
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
@@ -216,6 +236,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         }
+        Log.i(TAG, "getEnteredVerificationCode: Verification code:");
         return codeSb.toString();
     }
 
