@@ -7,7 +7,8 @@ public class Contacts implements Serializable {
 
     private final String name;
     private final String number;
-    private boolean showDeleteButton;
+    private boolean isSelected;
+    private String uniqueID;
 
     public Contacts(String _name, String _number){
         name = _name;
@@ -16,7 +17,14 @@ public class Contacts implements Serializable {
 
     public String getName(){return name;}
     public String getNumber(){return number;}
-    public void setShowDeleteButton(boolean show) {showDeleteButton = show;}
-    public boolean isShowDeleteButton(){return showDeleteButton;}
+    public void setSelected(boolean show) {
+        isSelected = show;}
+    public boolean isSelected(){return isSelected;}
 
+    public void setID(String id) {
+        this.uniqueID = id;
+    }
+    public String getId(){
+        return uniqueID;
+    }
 }

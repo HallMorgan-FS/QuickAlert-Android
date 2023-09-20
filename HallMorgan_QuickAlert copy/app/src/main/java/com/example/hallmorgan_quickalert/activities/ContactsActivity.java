@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,13 +33,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ContactsActivity extends AppCompatActivity {
+public class ContactsActivity extends AppCompatActivity implements ContactListFragment.OnEditListener {
     private static final String TAG = "ContactsActivity";
-
 
     private FirebaseUser currentUser;
     private final ArrayList<Contacts> contactsArrayList = new ArrayList<>();
     private DatabaseReference userContactsRef;
+    private ImageButton addContactsButton;
 
 
     @Override
@@ -53,7 +54,7 @@ public class ContactsActivity extends AppCompatActivity {
             TextView titleTextView = actionBar.getCustomView().findViewById(R.id.title_text_view);
             titleTextView.setText(R.string.contacts);
         }
-        ImageButton addContactsButton = findViewById(R.id.add_contacts_button);
+        addContactsButton = findViewById(R.id.add_contacts_button);
 
 
         Intent intent = getIntent();
@@ -78,8 +79,6 @@ public class ContactsActivity extends AppCompatActivity {
                                         // Database structure created successfully, proceed with adding contacts and showing empty view stub
                                         getSupportFragmentManager().beginTransaction().replace(R.id.listFragment_container, ContactListFragment.newInstance(null)).commit();
                                         Log.i(TAG, "List Fragment should show empty view stub");
-                                        Toast.makeText(ContactsActivity.this, "Please add contacts to the list", Toast.LENGTH_SHORT).show();
-
                                     } else {
                                         // Handle the error when creating the database structure
                                         Toast.makeText(ContactsActivity.this, "Failed to create user database", Toast.LENGTH_SHORT).show();
@@ -166,6 +165,7 @@ public class ContactsActivity extends AppCompatActivity {
         //Add each contact separately to the user's contacts node
         String key = userContactsRef.push().getKey();
         if (key != null){
+            contact.setID(key);
             userContactsRef.child(key).child("name").setValue(contact.getName());
             userContactsRef.child(key).child("number").setValue(contact.getNumber());
         }
@@ -180,9 +180,11 @@ public class ContactsActivity extends AppCompatActivity {
                 if (snapshot.exists()) {
                     // User has stored contacts, retrieve the data and update the list view fragment
                     for (DataSnapshot contactSnapshot : snapshot.getChildren()) {
+                        String id = contactSnapshot.getKey();
                         String name = contactSnapshot.child("name").getValue(String.class);
                         String number = contactSnapshot.child("number").getValue(String.class);
                         Contacts contact = new Contacts(name, number);
+                        contact.setID(id);
                         Log.i(TAG, "onDataChange: Contact name: " + name + " Contact Number: " + number);
                         contactsArrayList.add(contact);
                     }
@@ -204,5 +206,16 @@ public class ContactsActivity extends AppCompatActivity {
     }
 
 
-
+    @Override
+    public void onEdit(int titleResource, int instructionResource, boolean isEdit) {
+        TextView title = findViewById(R.id.profile_title);
+        TextView instructions = findViewById(R.id.profile_instructions);
+        title.setText(titleResource);
+        instructions.setText(instructionResource);
+        if (isEdit){
+            addContactsButton.setVisibility(View.GONE);
+        } else {
+            addContactsButton.setVisibility(View.VISIBLE);
+        }
+    }
 }
