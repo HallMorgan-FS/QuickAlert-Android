@@ -129,6 +129,7 @@
                 android:background="@drawable/frame_border"
                 android:hint="@string/zero"
                 android:textColor="@color/black"
+                android:textColorHint="#A1887F"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:textAlignment="center"
@@ -146,6 +147,20 @@
             android:paddingTop="16dp"
             android:scaleType="fitStart"
             android:src="@drawable/login_button" />
+
+        <TextView
+            style="@style/textView_style.small"
+            android:text="@string/reEnterPhoneNumber"/>
+
+        <Button
+            android:id="@+id/goBack_button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/gray"
+            android:text="@string/go_back"
+            android:textColor="@color/dark_black"
+            android:textStyle="italic"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </LinearLayout>
 

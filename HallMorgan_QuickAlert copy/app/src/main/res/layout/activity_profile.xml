@@ -10,18 +10,20 @@
     tools:context=".activities.ContactsActivity">
 
     <TextView
+        android:id="@+id/profile_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/textView_style"
-        android:text="@string/delete_and_add_emergency_contacts"/>
+        android:text="@string/add_emergency_contacts"/>
 
     <TextView
+        android:id="@+id/profile_instructions"
         android:paddingTop="20dp"
         android:paddingBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/textView_style.small"
-        android:text="@string/contact_instructions"/>
+        android:text="@string/instructions_add_contacts"/>
 
     <FrameLayout
         android:id="@+id/listFragment_container"
