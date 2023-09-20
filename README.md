@@ -59,4 +59,47 @@ if (buttonTag.equals(\"SOS\")){
     box will close in 3 minutes\";
   }
 ```
+// Code to fetch location
+```
+    private void getAddress(double latitude, double longitude) {
+        Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+        try {
+            List<Address> addresses = geocoder.getFromLocation(latitude, longitude, 1);
+            if (addresses != null && !addresses.isEmpty()) {
+                Address address = addresses.get(0);
+
+                // Extract the address components
+                String addressLine = address.getAddressLine(0);
+                String city = address.getLocality();
+                String state = address.getAdminArea();
+                String country = address.getCountryName();
+                String postalCode = address.getPostalCode();
+
+                // Use the address components as needed
+                readableAddress = addressLine + ", " + city + ", " + state + ", " + country + ", " + postalCode;
+
+            } else {
+                // No address found
+                readableAddress = "No readable address found. Coordinates are: Lat: " + latitude + " Long: " + longitude;
+            }
+        } catch (IOException e) {
+            // Error occurred while geocoding
+            e.printStackTrace();
+        }
+    }
+```
+
+## Contribution Guidelines
+
+If you wish to contribute to this project, please fork the repository
+and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact Information
+
+For further questions or contributions, please contact me at
+morganhall.dev@outlook.com
 
